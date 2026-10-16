@@ -1,3 +1,4 @@
+warning: Cannot check if git requires authentication.
 apiVersion: v1
 items:
 - apiVersion: image.openshift.io/v1
@@ -5,7 +6,6 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
     labels:
       app: simple
       app.kubernetes.io/component: simple
@@ -21,7 +21,6 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
     labels:
       app: simple
       app.kubernetes.io/component: simple
@@ -37,21 +36,21 @@ items:
     resources: {}
     source:
       git:
-        uri: https://github.com/sandervanvugt/simpleapp
+        uri: https://github.com/iszigetiistvan-code/simpleapp.git
       type: Git
     strategy:
       sourceStrategy:
         from:
           kind: ImageStreamTag
-          name: php:8.0-ubi8
+          name: php:8.3-ubi10
           namespace: openshift
       type: Source
     triggers:
     - github:
-        secret: VDgrFU8FfXUEjkyKBMks
+        secret: dyseoov0dQQPvXSZyvrT
       type: GitHub
     - generic:
-        secret: iMtWLmlUc8SKHgbEX_4A
+        secret: ZATm1bgpfp1YdxAzd1uf
       type: Generic
     - type: ConfigChange
     - imageChange: {}
@@ -64,7 +63,6 @@ items:
     annotations:
       image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"simple:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"simple\")].image"}]'
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
     labels:
       app: simple
       app.kubernetes.io/component: simple
@@ -80,7 +78,6 @@ items:
       metadata:
         annotations:
           openshift.io/generated-by: OpenShiftNewApp
-        creationTimestamp: null
         labels:
           deployment: simple
       spec:
@@ -99,7 +96,6 @@ items:
   metadata:
     annotations:
       openshift.io/generated-by: OpenShiftNewApp
-    creationTimestamp: null
     labels:
       app: simple
       app.kubernetes.io/component: simple
